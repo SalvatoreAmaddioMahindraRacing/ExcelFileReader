@@ -30,7 +30,7 @@ namespace ExcelReader
             get => _min;
             set
             {
-                if (string.IsNullOrEmpty(value) || value.Equals("-"))
+                if (string.IsNullOrEmpty(value) || StringIsNotNumeric(value))
                     _min = null;
                 else
                     _min = value;
@@ -42,11 +42,16 @@ namespace ExcelReader
             get => _max;
             set
             {
-                if (string.IsNullOrEmpty(value) || value.Equals("-"))
+                if (string.IsNullOrEmpty(value) || StringIsNotNumeric(value))
                     _max = null;
                 else
                     _max = value;
             }
+        }
+
+        private static bool StringIsNotNumeric(string? value)
+        {
+            return !double.TryParse(value, out double d);
         }
 
         public override string? ToString()
