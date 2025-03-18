@@ -5,7 +5,7 @@ namespace ExcelReader
 {
     public class Program
     {
-        private static JsonSerializerOptions options = new()
+        private static readonly JsonSerializerOptions options = new()
         {
             Encoder = JavaScriptEncoder.UnsafeRelaxedJsonEscaping,
             WriteIndented = true
